@@ -1,0 +1,209 @@
+.Tools {
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: 12px;
+  column-gap: 12px;
+  border-radius: 16px 16px 0 0;
+  margin-bottom: 32px;
+  .Card {
+    max-width: 416px;
+    outline: 1px solid #f2f2f2;
+    border-radius: 16px;
+    overflow: hidden;
+    &:hover > .ImgContainer > .ToolImg {
+      transform: scale(1.2, 1.2);
+    }
+    .ImgContainer {
+      max-width: 416px;
+      overflow: hidden;
+      .ToolImg {
+        display: block;
+        transition: all 0.3s ease-out;
+      }
+    }
+    .InfoBox {
+      .Info {
+        padding: 20px 32px;
+        h3 {
+          font-size: 20px;
+          font-weight: 900;
+          margin-bottom: 12px;
+        }
+        p {
+          height: 42px;
+          line-height: 150%;
+          font-size: 14px;
+          color: #525252;
+        }
+      }
+      .ModuleInfo {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 32px;
+        border-top: 1px solid #f2f2f2;
+        .ModuleType {
+          font-weight: 700;
+        }
+      }
+      .Function {
+        @extend .ModuleInfo;
+      }
+    }
+  }
+}
+.ToolsSection {
+  background-color: white;
+  color: black;
+  padding: 80px 12px 80px;
+  padding-right: 16px;
+  border-radius: 16px;
+  margin-top: 120px;
+  .Header {
+    width: 280px;
+    margin: 0 auto;
+    font-size: 32px;
+    font-weight: 900;
+    line-height: 120%;
+    text-align: center;
+    margin-bottom: 32px;
+  }
+  .Setting {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    position: relative;
+    .Search {
+      padding: 20px 40px;
+      background-color: #f2f2f2;
+      border-radius: 16px;
+      color: #919191;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      .SearchInput {
+        border: 0;
+        background-color: transparent;
+        &:focus {
+          outline: 0;
+        }
+        &::placeholder {
+          color: #919191;
+        }
+      }
+    }
+    .Filter {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 90px;
+      .FilterSelection {
+        border: 1px solid #f2f2f2;
+        border-radius: 16px;
+        padding: 20px 32px 20px 40px;
+        &:hover {
+          cursor: pointer;
+        }
+      }
+      div {
+        display: flex;
+        gap: 12px;
+        align-items: center;
+      }
+    }
+    .Options {
+      position: absolute;
+      top: 168px;
+      overflow-x: scroll;
+      overflow-y: hidden;
+      &::-webkit-scrollbar {
+        display: none;
+      }
+      .OptionsContainer {
+        display: flex;
+        li {
+          padding: 8px 16px;
+          color: #919191;
+          font-weight: 700;
+          flex-shrink: 0;
+          &:hover {
+            cursor: pointer;
+            @extend .ActiveOption;
+          }
+        }
+        .ActiveOption {
+          padding: 8px 16px;
+          background-color: #f2f2f2;
+          color: black;
+          border-radius: 16px;
+        }
+      }
+    }
+  }
+  .Pagination {
+    display: flex;
+    justify-content: flex-end;
+    li {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 48px;
+      height: 48px;
+      font-size: 14px;
+      font-weight: 700;
+      &:hover {
+        cursor: pointer;
+        background-color: #f2f2f2;
+        border-radius: 16px;
+      }
+    }
+    .ActivePage {
+      background-color: black;
+      color: white;
+      border-radius: 16px;
+      &:hover {
+        background-color: black;
+      }
+    }
+  }
+}
+@media screen and (min-width: 1298px) {
+  .ToolsSection {
+    border-radius: 72px;
+    .SectionContainer {
+      width: 1298px;
+      margin: 0 auto;
+    }
+    .Header {
+      width: 100%;
+      font-size: 80px;
+      margin-bottom: 80px;
+    }
+    .Setting {
+      .Filter {
+        margin-bottom: 48px;
+      }
+      .Options {
+        position: static;
+        overflow-x: scroll;
+        overflow-y: hidden;
+        &::-webkit-scrollbar {
+          display: none;
+        }
+        .OptionsContainer {
+          display: flex;
+          li {
+            padding: 8px 16px;
+            color: #919191;
+            font-weight: 700;
+          }
+          .ActiveOption {
+            padding: 8px 16px;
+            background-color: #f2f2f2;
+            color: black;
+            border-radius: 16px;
+          }
+        }
+      }
+    }
+  }
+}

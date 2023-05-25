@@ -1,115 +1,101 @@
-import Head from 'next/head';
-import styles from '../styles/Home.module.css';
+import Head from 'next/head'
+import styles from '../styles/Home.module.scss'
+import Navbar from '../components/Navbar'
+import Image from 'next/image'
+import ToolSection from '../components/ToolSection'
+import Companys from '../components/Companys'
+import Onions from '../components/Onions'
+import Footer from '../components/Footer'
+import Recommends from '../components/Recommends'
+
+import flash from '../public/img/flash.svg'
+import awesome from '../public/img/awesome.svg'
+import libraryAdd from '../public/img/library-add.svg'
+import arrowRightUp from '../public/img/arrow-right-up.svg'
+import arrowRightUpBlack from '../public/img/arrow-right-up-black.svg'
 
 export default function Home() {
   return (
-    <div className={styles.container}>
+    <div className={styles.Container}>
       <Head>
-        <title>Create Next App</title>
+        <title>AI工具王</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
+      <Navbar />
       <main>
-        <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
-
-        <p className={styles.description}>
-          Get started by editing <code>pages/index.js</code>
-        </p>
-
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h3>Documentation &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h3>Learn &rarr;</h3>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className={styles.card}
-          >
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-          >
-            <h3>Deploy &rarr;</h3>
+        <header className={styles.Header}>
+          <div className={styles.Title}>
+            <p>透過</p>
+            <p>AI工具王的</p>
+            <p>強大模型</p>
+            <p>讓您的業務更聰明</p>
+          </div>
+          <button className={styles.StartBtn}>開始使用</button>
+          <Onions />
+        </header>
+        <div className={styles.Service}>
+          <div>我們的服務</div>
+          <div>
+            <p>我們相信透過 AI 技術，</p>
             <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
+              包括圖像識別、自然語言處理和機器翻譯等，讓您更快、更準確地做出決策。
             </p>
-          </a>
+          </div>
         </div>
+        <div className={styles.Cards}>
+          <div className={styles.Card}>
+            <Image src={flash} alt="flash" priority="true" width={80} />
+            <div>快速</div>
+            <p>
+              我們先進的推理基礎設施提供了極短的響應時間，讓你的產品服務不間斷。
+            </p>
+          </div>
+          <div className={styles.Card}>
+            <Image src={awesome} alt="awesome" priority="true" width={80} />
+            <div>靈活</div>
+            <p>
+              我們的服務可以根據您的需求進行靈活調整，同時還可以滿足不同項目和預算的需求。
+            </p>
+          </div>
+          <div className={styles.Card}>
+            <Image
+              src={libraryAdd}
+              alt="libraryAdd"
+              priority="true"
+              width={80}
+            />
+            <div>擴充</div>
+            <p>我們的服務支持多種擴充選項，可以滿足您的不斷增長的 AI 需求。</p>
+          </div>
+        </div>
+        <div className={styles.Coop}>
+          <h3>來自合作夥伴</h3>
+          <Companys />
+        </div>
+        <Recommends />
       </main>
-
-      <footer>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel" className={styles.logo} />
-        </a>
-      </footer>
-
-      <style jsx>{`
-        main {
-          padding: 5rem 0;
-          flex: 1;
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-        }
-        footer {
-          width: 100%;
-          height: 100px;
-          border-top: 1px solid #eaeaea;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-        }
-        footer img {
-          margin-left: 0.5rem;
-        }
-        footer a {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          text-decoration: none;
-          color: inherit;
-        }
-        code {
-          background: #fafafa;
-          border-radius: 5px;
-          padding: 0.75rem;
-          font-size: 1.1rem;
-          font-family: Menlo, Monaco, Lucida Console, Liberation Mono,
-            DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
-        }
-      `}</style>
-
-      <style jsx global>{`
-        html,
-        body {
-          padding: 0;
-          margin: 0;
-          font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-            Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
-            sans-serif;
-        }
-        * {
-          box-sizing: border-box;
-        }
-      `}</style>
+      <ToolSection />
+      <main>
+        <div className={styles.StartUse}>
+          <div>現在就來建立屬於你的服務吧</div>
+          <button>
+            開始使用
+            <Image
+              src={arrowRightUp}
+              alt="arrowRightUp"
+              priority="true"
+              width={24}
+            />
+            <Image
+              src={arrowRightUpBlack}
+              alt="arrowRightUp"
+              priority="true"
+              width={24}
+            />
+          </button>
+        </div>
+        <Footer />
+      </main>
     </div>
   )
 }

@@ -1,0 +1,73 @@
+.PriceSection {
+  margin-bottom: 120px;
+  .Cards {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  h3 {
+    font-size: 20px;
+    font-weight: 900;
+    margin-bottom: 24px;
+  }
+}
+
+.Card {
+  border: 1px solid #525252;
+  transition: 0.3s;
+  border-radius: 16px;
+  &:hover {
+    border: 1px solid white;
+    cursor: pointer;
+  }
+  .Info {
+    padding: 20px;
+    height: 176px;
+    h4 {
+      font-size: 32px;
+      font-weight: 900;
+      margin-bottom: 12px;
+    }
+    ul {
+      list-style: disc;
+      padding-left: 20px;
+      color: #f2f2f2;
+    }
+  }
+  .Price {
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid #525252;
+    span {
+      font-size: 20px;
+      font-weight: 900;
+    }
+    .Token {
+      color: #919191;
+      font-weight: 400;
+    }
+    .StartUse {
+      display: flex;
+      gap: 12px;
+    }
+  }
+}
+@media screen and (min-width: 1298px) {
+  .PriceSection {
+    margin-bottom: 180px;
+    .Cards {
+      flex-direction: row;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+    h3 {
+      font-size: 32px;
+      margin-bottom: 80px;
+    }
+  }
+  .Card {
+    min-width: 612px;
+  }
+}

@@ -1,0 +1,63 @@
+.Onions {
+  display: flex;
+  margin-bottom: 120px;
+  height: 117px;
+  overflow-y: hidden;
+  .Onion {
+    width: 117px;
+    position: relative;
+    img {
+      position: absolute;
+      height: 117px;
+    }
+    &:nth-child(1) {
+      animation-name: animation;
+      animation-duration: 3s;
+      animation-iteration-count: infinite;
+    }
+    &:nth-child(2) {
+      animation-name: animation;
+      animation-duration: 3s;
+      animation-iteration-count: infinite;
+      animation-delay: 0.3s;
+    }
+    &:nth-child(3) {
+      animation-name: animation;
+      animation-duration: 3s;
+      animation-iteration-count: infinite;
+      animation-delay: 0.5s;
+    }
+    @keyframes animation {
+      0% {
+        bottom: -100%;
+      }
+      50% {
+        bottom: 0;
+      }
+      75% {
+        bottom: 0;
+      }
+      100% {
+        bottom: 100%;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 1298px) {
+  .Onions {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 180px;
+    height: 180px;
+    overflow: hidden;
+    .Onion {
+      width: 180px;
+      position: relative;
+      img {
+        height: 180px;
+        position: absolute;
+      }
+    }
+  }
+}

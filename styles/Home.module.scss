@@ -1,0 +1,163 @@
+.Container {
+  margin: 0 auto;
+  overflow-y: hidden;
+  Main {
+    padding: 0 12px;
+    max-width: 1298px;
+    margin: 0 auto;
+  }
+}
+.Header {
+  z-index: 1;
+  .Title {
+    width: 252px;
+    font-size: 48px;
+    margin: 40px 0;
+    font-weight: 900;
+    line-height: 120%;
+  }
+  .StartBtn {
+    color: white;
+    background-color: black;
+    border: 1px solid white;
+    border-radius: 16px;
+    padding: 20px 40px;
+    font-size: 20px;
+    margin-bottom: 180px;
+    transition: 0.3s;
+    &:hover {
+      color: black;
+      background-color: white;
+      border: 1px solid white;
+      cursor: pointer;
+    }
+  }
+}
+.Service {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  font-weight: 900;
+  margin-bottom: 48px;
+  div {
+    font-size: 20px;
+  }
+  p {
+    font-size: 32px;
+    line-height: 120%;
+  }
+}
+.Cards {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 120px;
+  .Card {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 40px 20px;
+    border: 1px solid #525252;
+    border-radius: 16px;
+    div {
+      font-size: 32px;
+      font-weight: 900;
+    }
+    p {
+      line-height: 150%;
+    }
+  }
+}
+.Coop {
+  h3 {
+    font-size: 20px;
+    margin-bottom: 24px;
+  }
+}
+
+.StartUse {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+  padding: 120px 72px;
+  margin: 40px 0;
+  max-width: 1298px;
+  margin: 0 auto;
+  div {
+    font-size: 32px;
+    font-weight: 900;
+    line-height: 120%;
+    width: 224px;
+    text-align: center;
+  }
+  button {
+    padding: 20px 32px 20px 40px;
+    border: 1px solid white;
+    background-color: black;
+    color: white;
+    border-radius: 16px;
+    display: flex;
+    gap: 12px;
+    font-size: 20px;
+    transition: 0.3s;
+    &:hover {
+      cursor: pointer;
+      color: black;
+      background-color: white;
+      img:nth-child(1) {
+        display: none;
+      }
+      img:nth-child(2) {
+        display: inline-block;
+      }
+    }
+    img:nth-child(2) {
+      display: none;
+    }
+  }
+}
+
+@media screen and (min-width: 1298px) {
+  .Header {
+    .Title {
+      width: 100%;
+      font-size: 120px;
+    }
+  }
+  .Service {
+    flex-direction: row;
+    gap: 24px;
+    margin-bottom: 80px;
+    div {
+      width: 414px;
+      font-size: 32px;
+    }
+    p {
+      width: 856px;
+      font-size: 48px;
+    }
+  }
+  .Cards {
+    flex-direction: row;
+    gap: 24px;
+    .Card {
+      width: 416px;
+      height: 366px;
+      padding: 80px 40px;
+    }
+  }
+  .Coop {
+    h3 {
+      font-size: 32px;
+      margin-bottom: 80px;
+    }
+  }
+  .StartUse {
+    gap: 40px;
+    div {
+      width: 100%;
+      font-size: 48px;
+    }
+  }
+}

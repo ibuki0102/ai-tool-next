@@ -1,9 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700;900&display=swap');
+
 html,
 body {
-  padding: 0;
   margin: 0;
-  font-family: Inter, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-    Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: Noto Sans TC, Inter, -apple-system, BlinkMacSystemFont, Segoe UI,
+    Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
+    sans-serif;
+  background-color: black;
+  color: white;
+  max-height: 850px;
 }
 
 a {
@@ -17,11 +22,12 @@ a {
 
 img {
   max-width: 100%;
-  height: auto;
 }
 
 h1,
 h2,
+h3,
+h4,
 p,
 ul {
   margin: 0;
@@ -35,4 +41,10 @@ ul {
 button {
   padding: 0.5rem 1rem;
   font-weight: bold;
+}
+@media screen and (min-width: 1298px) {
+  html,
+  body {
+    max-height: 100vh;
+  }
 }

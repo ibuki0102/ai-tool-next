@@ -1,0 +1,55 @@
+.Recommend {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  margin-top: 48px;
+  &:nth-child(-n + 2) {
+    display: none;
+  }
+  .UserInfo {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    .Info {
+      div {
+        font-weight: 700;
+        margin-bottom: 4px;
+      }
+    }
+  }
+}
+.Recommends {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  margin-top: 80px;
+}
+@media screen and (min-width: 1298px) {
+  .Recommends {
+    flex-direction: row;
+    margin-top: 220px;
+    &:nth-child(2) {
+      display: flex;
+    }
+    &:nth-child(3) {
+      display: flex;
+    }
+    .Recommend {
+      width: 416px;
+      padding: 40px;
+      &:nth-child(-n + 2) {
+        display: flex;
+      }
+      .Content {
+        height: 215px;
+      }
+    }
+    .Pagination {
+      display: none;
+    }
+  }
+}
