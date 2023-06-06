@@ -15,7 +15,9 @@ export default function Footer() {
       <div className={styles.MenuSection}>
         <div className={styles.Menu}>
           <Image src={logo} alt="logo" priority="true" width={40} />
-          <Image src={ai_title} alt="ai_title" priority="true" width={190} />
+          <a href="/">
+            <Image src={ai_title} alt="ai_title" priority="true" width={190} />
+          </a>
         </div>
         <div>
           <p>
@@ -36,14 +38,16 @@ export default function Footer() {
           </ul>
         </div>
         <div className={styles.BackToTop} onClick={() => handleScrollToTop()}>
-          Back to top
-          <Image
-            src={arrowUp}
-            alt="arrowUp"
-            priority="true"
-            width={16}
-            height={16}
-          />
+          <div>
+            Back to top
+            <Image
+              src={arrowUp}
+              alt="arrowUp"
+              priority="true"
+              width={16}
+              height={16}
+            />
+          </div>
         </div>
       </div>
     </>

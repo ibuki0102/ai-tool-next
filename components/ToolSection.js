@@ -1,12 +1,45 @@
 import styles from '../styles/ToolSection.module.scss'
 import Image from 'next/image'
+import { useState } from 'react'
 
 import search from '../public/img/search.svg'
 import filter from '../public/img/filter.svg'
+import activeFilter from '../public/img/active-filter.svg'
 import arrowDown from '../public/img/arrow-down.svg'
 import arrowRight from '../public/img/arrow-right.svg'
 
 export default function ToolSection() {
+  const [option, setOption] = useState('all')
+  const [mainFilter, setMainFilter] = useState(false)
+  const [module, setModule] = useState('所有模型')
+  const [type, setType] = useState('全部')
+  const [timeFilter, setTimeFilter] = useState(false)
+  const [time, setTime] = useState('從新到舊')
+  const handleOption = (name) => {
+    setOption(name)
+  }
+  const handleMainFilter = () => {
+    setMainFilter(mainFilter === true ? false : true)
+  }
+  const handleTimeFilter = () => {
+    setTimeFilter(timeFilter === true ? false : true)
+  }
+  const handleClickModule = () => {
+    if (event.target.id) {
+      setModule(event.target.id)
+    }
+  }
+  const handleClickType = () => {
+    if (event.target.id) {
+      setType(event.target.id)
+    }
+  }
+  const handleClickTime = () => {
+    if (event.target.id) {
+      setTime(event.target.id)
+      setTimeFilter(false)
+    }
+  }
   return (
     <div className={styles.ToolsSection}>
       <div className={styles.SectionContainer}>
@@ -24,35 +57,251 @@ export default function ToolSection() {
           </div>
           <div className={styles.Filter}>
             <div className={styles.FilterSelection}>
-              篩選
-              <Image
-                src={filter}
-                alt="filter"
-                priority="true"
-                width={16}
-                height={16}
-              />
+              <div
+                className={styles.FilterButton}
+                onClick={() => handleMainFilter()}
+              >
+                {module !== '所有模型' ? module : null}
+                {module !== '所有模型' && type !== '全部' ? '、' : null}
+                {type !== '全部' ? type : null}
+                {module === '所有模型' && type === '全部' ? '篩選' : null}
+                <Image
+                  src={
+                    module !== '所有模型' || type !== '全部'
+                      ? activeFilter
+                      : filter
+                  }
+                  alt="filter"
+                  priority="true"
+                  width={16}
+                  height={16}
+                />
+              </div>
+              <div
+                className={
+                  mainFilter ? styles.OpenedMainFilter : styles.MainFilter
+                }
+              >
+                <div>
+                  <div>AI模型</div>
+                  <ul onClick={() => handleClickModule()}>
+                    <label htmlFor="所有模型">
+                      <li>
+                        所有模型
+                        <input
+                          type="radio"
+                          id="所有模型"
+                          name="module"
+                          defaultChecked
+                        />
+                      </li>
+                    </label>
+                    <label htmlFor="卡卡">
+                      <li>
+                        卡卡
+                        <input type="radio" id="卡卡" name="module" />
+                      </li>
+                    </label>
+                    <label htmlFor="杰杰">
+                      <li>
+                        杰杰
+                        <input type="radio" id="杰杰" name="module" />
+                      </li>
+                    </label>
+                    <label htmlFor="琪琪">
+                      <li>
+                        琪琪
+                        <input type="radio" id="琪琪" name="module" />
+                      </li>
+                    </label>
+                    <label htmlFor="昊昊">
+                      <li>
+                        昊昊
+                        <input type="radio" id="昊昊" name="module" />
+                      </li>
+                    </label>
+                  </ul>
+                </div>
+                <div>
+                  <div>類型</div>
+                  <ul onClick={() => handleClickType()}>
+                    <label htmlFor="全部">
+                      <li>
+                        全部
+                        <input
+                          type="radio"
+                          id="全部"
+                          name="type"
+                          defaultChecked
+                        />
+                      </li>
+                    </label>
+                    <label htmlFor="問答服務">
+                      <li>
+                        問答服務
+                        <input type="radio" id="問答服務" name="type" />
+                      </li>
+                    </label>
+                    <label htmlFor="虛擬客服">
+                      <li>
+                        虛擬客服
+                        <input type="radio" id="虛擬客服" name="type" />
+                      </li>
+                    </label>
+                    <label htmlFor="生活應用">
+                      <li>
+                        生活應用
+                        <input type="radio" id="生活應用" name="type" />
+                      </li>
+                    </label>
+                    <label htmlFor="程式知識">
+                      <li>
+                        程式知識
+                        <input type="radio" id="程式知識" name="type" />
+                      </li>
+                    </label>
+                    <label htmlFor="翻譯助手">
+                      <li>
+                        翻譯助手
+                        <input type="radio" id="翻譯助手" name="type" />
+                      </li>
+                    </label>
+                    <label htmlFor="翻譯助手">
+                      <li>
+                        翻譯助手
+                        <input type="radio" id="翻譯助手" name="type" />
+                      </li>
+                    </label>
+                  </ul>
+                </div>
+              </div>
             </div>
             <div className={styles.Options}>
               <ul className={styles.OptionsContainer}>
-                <li className={styles.ActiveOption}>全部</li>
-                <li>聊天</li>
-                <li>影像辨識</li>
-                <li>翻譯</li>
-                <li>行銷</li>
-                <li>克服</li>
-                <li>生產力</li>
+                <li className={option === 'all' ? styles.ActiveOption : null}>
+                  <input
+                    type="radio"
+                    name="option"
+                    value="all"
+                    defaultChecked
+                  />
+                  <label
+                    htmlFor="contactChoice1"
+                    onClick={() => handleOption('all')}
+                  >
+                    全部
+                  </label>
+                </li>
+                <li className={option === 'chat' ? styles.ActiveOption : null}>
+                  <input type="radio" name="option" value="chat" />
+                  <label
+                    htmlFor="contactChoice1"
+                    onClick={() => handleOption('chat')}
+                  >
+                    聊天
+                  </label>
+                </li>
+                <li
+                  className={
+                    option === 'imageRecognize' ? styles.ActiveOption : null
+                  }
+                >
+                  <input type="radio" name="option" value="imageRecognize" />
+                  <label
+                    htmlFor="contactChoice1"
+                    onClick={() => handleOption('imageRecognize')}
+                  >
+                    影像辨識
+                  </label>
+                </li>
+                <li
+                  className={
+                    option === 'translate' ? styles.ActiveOption : null
+                  }
+                >
+                  <input type="radio" name="option" value="translate" />
+                  <label
+                    htmlFor="contactChoice1"
+                    onClick={() => handleOption('translate')}
+                  >
+                    翻譯
+                  </label>
+                </li>
+                <li className={option === 'sale' ? styles.ActiveOption : null}>
+                  <input type="radio" name="option" value="sale" />
+                  <label
+                    htmlFor="contactChoice1"
+                    onClick={() => handleOption('sale')}
+                  >
+                    行銷
+                  </label>
+                </li>
+                <li
+                  className={option === 'service' ? styles.ActiveOption : null}
+                >
+                  <input type="radio" name="option" value="service" />
+                  <label
+                    htmlFor="contactChoice1"
+                    onClick={() => handleOption('service')}
+                  >
+                    客服
+                  </label>
+                </li>
+                <li
+                  className={option === 'product' ? styles.ActiveOption : null}
+                >
+                  <input type="radio" name="option" value="product" />
+                  <label
+                    htmlFor="contactChoice1"
+                    onClick={() => handleOption('product')}
+                  >
+                    生產力
+                  </label>
+                </li>
               </ul>
             </div>
             <div className={styles.FilterSelection}>
-              由新到舊
-              <Image
-                src={arrowDown}
-                alt="arrowDown"
-                priority="true"
-                width={16}
-                height={16}
-              />
+              <div
+                className={styles.TimeFilter}
+                onClick={() => handleTimeFilter()}
+              >
+                {time}
+                <Image
+                  src={arrowDown}
+                  alt="arrowDown"
+                  priority="true"
+                  width={16}
+                  height={16}
+                />
+              </div>
+              <div
+                className={
+                  timeFilter
+                    ? styles.OpenedTimeFilterOptions
+                    : styles.TimeFilterOptions
+                }
+              >
+                <ul onClick={() => handleClickTime()}>
+                  <label htmlFor="由新到舊">
+                    <li>
+                      由新到舊
+                      <input
+                        type="radio"
+                        name="timeOption"
+                        id="由新到舊"
+                        defaultChecked
+                      />
+                    </li>
+                  </label>
+
+                  <label htmlFor="由舊到新">
+                    <li>
+                      由舊到新
+                      <input type="radio" name="timeOption" id="由舊到新" />
+                    </li>
+                  </label>
+                </ul>
+              </div>
             </div>
           </div>
         </div>
@@ -94,7 +343,6 @@ export default function ToolSection() {
                 className={styles.ToolImg}
               />
             </div>
-
             <div className={styles.InfoBox}>
               <div className={styles.Info}>
                 <h3>Image Recognition Platform</h3>
@@ -122,7 +370,6 @@ export default function ToolSection() {
                 className={styles.ToolImg}
               />
             </div>
-
             <div className={styles.InfoBox}>
               <div className={styles.Info}>
                 <h3>Language Translation API</h3>
@@ -152,7 +399,6 @@ export default function ToolSection() {
                 className={styles.ToolImg}
               />
             </div>
-
             <div className={styles.InfoBox}>
               <div className={styles.Info}>
                 <h3>Sentiment Analysis API</h3>
@@ -182,7 +428,6 @@ export default function ToolSection() {
                 className={styles.ToolImg}
               />
             </div>
-
             <div className={styles.InfoBox}>
               <div className={styles.Info}>
                 <h3>Fraud Detection Platform</h3>
@@ -210,7 +455,6 @@ export default function ToolSection() {
                 className={styles.ToolImg}
               />
             </div>
-
             <div className={styles.InfoBox}>
               <div className={styles.Info}>
                 <h3>Voice Assistant SDK</h3>

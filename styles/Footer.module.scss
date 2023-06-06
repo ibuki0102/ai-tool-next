@@ -21,7 +21,7 @@
   margin: 0 auto;
   justify-content: space-between;
   .FirstRow {
-    width: 203px;
+    width: 150px;
     .BackToTop {
       display: flex;
       gap: 12px;
@@ -36,10 +36,13 @@
     }
   }
   .BackToTop {
-    display: flex;
-    gap: 20px;
-    &:hover {
-      cursor: pointer;
+    div {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      &:hover {
+        cursor: pointer;
+      }
     }
   }
 }

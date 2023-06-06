@@ -61,30 +61,48 @@
     gap: 16px;
     .Question {
       padding: 20px;
-      display: flex;
-      gap: 20px;
       font-size: 20px;
       font-weight: 900;
       border: 1px solid #525252;
       border-radius: 16px;
       line-height: 120%;
-      transition: 0.3s;
-      &:has(.OpenedContent) {
+      &:has(.Checkbox:checked) {
         border: 1px solid white;
-      }
-      .Content {
-        display: none;
-        margin-top: 16px;
-        font-size: 16px;
-        font-weight: 400;
-      }
-      .OpenedContent {
-        @extend .Content;
-        display: inline-block;
       }
       &:hover {
         border: 1px solid white;
         cursor: pointer;
+      }
+      .Checkbox {
+        display: none;
+        &:checked ~ label > .AddIcon {
+          object-fit: none;
+          height: 2px;
+          transition: 0.3s;
+        }
+      }
+      label {
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 20px;
+      }
+      .Content {
+        &:hover {
+          cursor: default;
+        }
+        height: 0;
+        opacity: 0;
+        font-size: 16px;
+        font-weight: 400;
+        overflow: hidden;
+        padding-left: 44px;
+        transition: 0.3s ease-in;
+      }
+      .Checkbox:checked ~ .Content {
+        margin-top: 16px;
+        height: auto;
+        opacity: 1;
       }
     }
   }

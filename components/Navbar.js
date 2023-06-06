@@ -23,13 +23,15 @@ export default function Navbar() {
           width={40}
           className={styles.Logo}
         />
-        <Image
-          src={ai_title}
-          alt="ai_title"
-          priority="true"
-          width={190}
-          className={styles.AiTitle}
-        />
+        <a href="/">
+          <Image
+            src={ai_title}
+            alt="ai_title"
+            priority="true"
+            width={190}
+            className={styles.AiTitle}
+          />
+        </a>
       </div>
       <div>
         {menuState ? (
