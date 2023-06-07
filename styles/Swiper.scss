@@ -1,15 +1,15 @@
 .swiper-pagination-bullet {
-  width: 8px;
-  height: 8px;
-  background: #525252;
-  opacity: 1;
-  vertical-align: middle;
+  width: 8px !important;
+  height: 8px !important;
+  background: #525252 !important;
+  opacity: 1 !important;
+  vertical-align: middle !important;
 }
 
 .swiper-pagination-bullet-active {
-  width: 12px;
-  height: 12px;
-  transition: width 0.5s;
-  border-radius: 5px;
-  background: white;
+  width: 12px !important;
+  height: 12px !important;
+  transition: width 0.5s !important;
+  border-radius: 5px !important;
+  background: white !important;
 }
